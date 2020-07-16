@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addGame } from '../../actions/game';
+import { PlainButton } from '../styles/Buttons';
+import { ProfileFormStyles } from '../styles/Profile';
 
 const initialState = {
   designer: '',
@@ -24,10 +26,10 @@ const GameForm = ({ addGame, history }) => {
   };
 
   return (
-    <>
-      <h1 className='large text-primary'>Add A Game</h1>
+    <ProfileFormStyles>
+      <h1>Add A Game</h1>
       <small>* = required field</small>
-      <form className='form' onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
         <div className='form-group'>
           <input
             type='text'
@@ -64,9 +66,11 @@ const GameForm = ({ addGame, history }) => {
             onChange={onChange}
           />
         </div>
-        <input type='submit' className='btn btn-primary my-1' />
+        <PlainButton>
+          <input type='submit' className='submit-button' />
+        </PlainButton>
       </form>
-    </>
+    </ProfileFormStyles>
   );
 };
 
